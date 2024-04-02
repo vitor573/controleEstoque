@@ -8,6 +8,13 @@
     "devDependencies": {
         "axios": "^1.6.4",
         "laravel-vite-plugin": "^1.0",
+        "sass": "^1.72.0",
         "vite": "^5.0"
+    },
+    "dependencies": {
+        "@popperjs/core": "^2.11.8",
+        "bootstrap": "^5.3.3",
+        "datatables.net-dt": "^2.0.3",
+        "simple-datatables": "^9.0.0"
     }
 }
