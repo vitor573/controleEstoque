@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{-- Pegando as variáveis de ambiente --}}
     <title>{{ env('APP_NAME') }}</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>

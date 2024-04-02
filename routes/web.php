@@ -3,5 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Produtos\ProdutosController;
 
-Route::resource('/produtos', ProdutosController::class);
+Route::get('/produtos/datatables', [ProdutosController::class, 'getProdutos']);
 
+Route::resource('/produtos', ProdutosController::class);

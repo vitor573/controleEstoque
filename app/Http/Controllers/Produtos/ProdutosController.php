@@ -37,22 +37,21 @@ class ProdutosController extends Controller
 
         return view('produtos.index')->with('produtos', $produtos)
             ->with('msg', 'Produto cadastrado com sucesso');
-
     }
 
     public function show(string $id)
     {
         $produtos = Produtos::find($id);
 
-       return $produtos ? view('produtos.show')->with('produtos', $produtos)
-        : view('produtos.show')->with('msg', 'Produto não encontrado!');
+        return $produtos ? view('produtos.show')->with('produtos', $produtos)
+            : view('produtos.show')->with('msg', 'Produto não encontrado!');
     }
 
     public function edit(string $id)
     {
         $produtos = Produtos::find($id);
 
-        if($produtos) {
+        if ($produtos) {
             return view('produtos.edit')->with('produtos', $produtos);
         } else {
             $produtos = Produtos::all();
@@ -61,33 +60,32 @@ class ProdutosController extends Controller
         }
     }
 
-    public function update(Request $request, string $id)
+    public function getProdutos(Request $request)
     {
-        $produtos = Produtos::find($id);
-
-        $produtos->name = $request->input('name');
-        $produtos->description = $request->input('description');
-        $produtos->price = $request->input('price');
-        $produtos->weight = $request->input('weight');
-        $produtos->category = $request->input('category');
-        $produtos->quantity = $request->input('quantity');
-
-        $produtos->save();
-
+        // Recuperando todos os produtos
         $produtos = Produtos::all();
-        return view('produtos.index')->with('produtos', $produtos)
-            ->with('msg', 'Produto não encontrado!');
 
-    }
+        // Convertendo cada produto em um array para a tabela
+        foreach ($produtos as $produto) {
+            $data[] = [
+                $produto->name,
+                $produto->description,
+                $produto->price,
+                $produto->weight,
+                $produto->category,
+                $produto->quantity,
+                // Adicione mais campos conforme necessário
+            ];
+        }
 
-    public function destroy(string $id)
-    {
-        $produtos = Produtos::find($id);
+        // Retornando a resposta como JSON
+        $response = (json_encode([
+            'draw' => intval($request->input('draw')),
+            'recordsTotal' => $produtos->count(),
+            'recordsFiltered' => $produtos->count(),
+            'data' => $data
+          ]));
 
-        $produtos->delete();
-
-        $produtos = Produtos::all();
-        return view('produtos.index')->with('produtos', $produtos)
-            ->with('msg', 'Produto não encontrado!');
+          return $response;
     }
 }

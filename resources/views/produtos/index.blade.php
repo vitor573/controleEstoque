@@ -4,7 +4,7 @@
     @if (!isset($produtos))
         <h3 style="color: red">Nenhum Registro Encontrado!</h3>
     @else
-        <table class="data-table">
+        <table id="list-products" class="data-table" style="width: 100%;">
             <thead>
                 <tr>
                     <th>Nome</th>
@@ -13,32 +13,23 @@
                     <th>Peso</th>
                     <th>Categoria</th>
                     <th>Quantidade</th>
-                    <th colspan="2">Opções</th>
                 </tr>
             </thead>
-            <tbody>
-                {{-- itera sobre a coleção de veículos --}}
-                @foreach ($produtos as $v)
-                    <tr>
-                        <td>{{ $v->name }} </td>
-                        <td> {{ $v->description }} </td>
-                        <td> {{ $v->price }} </td>
-                        <td> {{ $v->weight }} </td>
-                        <td> {{ $v->category }} </td>
-                        <td> {{ $v->quantity }} </td>
-                        {{-- vai para a rota show, passando o id como parâmetro --}}
-                        <td> <a href="{{ route('produtos.show', $v->id) }}">Exibir</a> </td>
-                        <td> <a href="{{ route('produtos.edit', $v->id) }}">Editar</a> </td>
-                    </tr>
-                @endforeach
-            </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="5">Produtos Cadastrados: {{ $produtos->count() }}</td>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Peso</th>
+                    <th>Categoria</th>
+                    <th>Quantidade</th>
                 </tr>
             </tfoot>
         </table>
     @endif
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+    <script src="{{ asset('js/datatables-init.js') }}"></script>
     @if(isset($msg))
         <script>
             alert("{{$msg}}");
