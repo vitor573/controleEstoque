@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>Laravel - CRUD</h1>
+            <h1>Controle de Estoque</h1>
         </header>
         <nav>
             <ul>

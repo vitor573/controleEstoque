@@ -3,17 +3,17 @@
     padding: 0;
 }
 div.container{
-    width: 1200px;
+    width: 100vw;
     margin: 0 auto;
 }
 div.container > header {
-    background-color: darkblue;
+    background-color: rgb(1, 1, 15);
     color: white;
     padding: 10px;
     text-align: center;
 }
 div.container > nav {
-    background-color: lightblue;
+    background-color: gray;
 }
 div.container > nav li {
     display: inline-block;
@@ -25,30 +25,30 @@ div.container > nav a:link,
 div.container > nav a:active,
 div.container > nav a:visited {
     text-decoration: none;
-    color: darkblue;
+    color: black;
     padding: 1rem;
 }
 div.container > nav li:hover,
 div.container > nav a:hover {
-    background-color: blue;
+    background-color: black;
     color: white;
 }
 div.content{
     min-height: 400px;
-    background-color: beige;
+    background-color: white;
     padding: 2rem;
 }
 div.content h2 {
-    border-bottom: medium darkblue solid;
+    border-bottom: medium darkgray solid;
     font-family: Arial;
-    color: darkblue;
+    color: black;
     margin-bottom: 3rem;
 }
 div.content p{
     line-height: 1.5rem;
 }
 div.container > footer{
-    background-color: lightblue;
+    background-color: gray;
     padding: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -58,7 +58,7 @@ table.data-table{
     border-spacing: 0;
 }
 table.data-table > thead{
-    background-color: darkblue;
+    background-color: black;
     color: white;
 }
 table.data-table td, th {
@@ -66,10 +66,10 @@ table.data-table td, th {
     padding: 5px;
 }
 table.data-table tfoot{
-    background-color: lightblue;
+    background-color: gray;
 }
 table.data-table > tbody > tr:hover{
-    background-color: lightcyan;
+    background-color: lightgray;
     cursor: pointer;
 }
 form.form label {
@@ -85,3 +85,38 @@ form.form input[type=submit], form.form input[type=reset], button{
     padding: 0.5rem;
     cursor: pointer;
 }
+/* Estilos para os labels */
+label {
+    font-size: 1.2em; /* Aumenta o tamanho do texto dos labels */
+    margin-bottom: 5px; /* Espaçamento entre o label e o input */
+}
+
+/* Estilos para os inputs e textarea */
+input, textarea {
+    width: 100%; /* Largura total do container */
+    margin-bottom: 20px; /* Espaçamento entre os inputs */
+}
+
+/* Estilos específicos para a descrição */
+textarea#description {
+    height: 150px; /* Altura da caixa de texto */
+    resize: none; /* Impede o redimensionamento da caixa de texto */
+}
+
+/* Estilos para os botões */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
